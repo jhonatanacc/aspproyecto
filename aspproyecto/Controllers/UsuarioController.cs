@@ -19,5 +19,38 @@ namespace aspproyecto.Controllers
             }
               
         }
+    public ActionResult create()
+        {
+            return View () ;
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult create (usuario usuario)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            try
+            {
+                using (var db = new inventario2021Entities())
+                {
+                    db.usuario.Add(usuario);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+            }catch(Exception ex)
+            {
+                ModelState.AddModelError("", "Error" + ex);
+                return View();
+            }
+
+
+        }
+
+
     }
+
+
 }
