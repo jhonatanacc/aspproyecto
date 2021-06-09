@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using aspproyecto.Models;
-
-
+using System.Web.Security;
+using System.Text;
 namespace aspproyecto.Controllers
 {
     public class UsuarioController : Controller
@@ -54,16 +54,16 @@ namespace aspproyecto.Controllers
         public static string HashSHA1(string value)
         {
             var sha1 = System.Security.Cryptography.SHA1.Create();
-            var inputBytes = Encoding.ASCII.Getbytes(value);
+            var inputBytes = Encoding.ASCII.GetBytes(value);
             var hash = sha1.ComputeHash(inputBytes);
 
-            var sb = new stringBuilder();
+            var sb = new StringBuilder();
             for (var i = 0; i < hash.Length; i++)
 
             {
                 sb.Append(hash[i].ToString("x2"));
             }
-            return sb.Tostring();
+            return sb.ToString();
 
         }
 
@@ -74,15 +74,53 @@ namespace aspproyecto.Controllers
             {
                 using(var  db = new inventario2021Entities())
                 {
-                    usuario fundUser = db.usuario.Where(a => a.id == id).FirstOrdefault();
-                    return View(findUser);
+                    usuario FindUser = db.usuario.Where(a => a.id == id).FirstOrDefault();
+                    return View(FindUser);
                 }
             }
             catch  (Exception ex)
             {
                 ModelState.AddModelError("", "error" + ex);
                 return View();
+        
             }
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(usuario usuarioEdit)
+        {
+            try
+            {
+                using (var db = new inventario2021Entities())
+                {
+                    usuario user = db.usuario.Find(usuarioEdit.id);
+                    user.nombre = usuarioEdit.nombre;
+                    user.apellido = usuarioEdit.apellido;
+                    user.email = usuarioEdit.email;
+                    user.fecha_nacimiento = usuarioEdit.fecha_nacimiento;
+                    user.password = usuarioEdit.password;
+
+                    db.SaveChanges();
+                    return RedirectToAction("index");
+                }
+
+            }catch(Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+        }
+
+        public ActionResult Details(int id)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                //buscar usuario por id
+                usuario user = db.usuario.Find(id);
+                return View(user);
+            }
+
+        }
+
     }
 }
