@@ -286,6 +286,7 @@
     <Content Include="Views\Usuario\Delete.cshtml" />
     <Content Include="Views\Usuario\test.cshtml" />
     <Content Include="Views\Shared\NuevoLayaout.cshtml" />
+    <Content Include="Views\Proovedor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
