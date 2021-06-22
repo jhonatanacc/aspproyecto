@@ -290,6 +290,7 @@
     <Content Include="Views\Proovedor.cshtml" />
     <Content Include="Views\Producto\index.cshtml" />
     <Content Include="Views\Producto\Create.cshtml" />
+    <Content Include="Views\Producto\ListarProveedores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
