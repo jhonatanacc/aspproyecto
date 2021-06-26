@@ -4,17 +4,19 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Mvc;
 using aspproyecto.Models;
 
 namespace aspproyecto.Controllers
 {
-    public class ProovedorController : Controller
+    public class ProveedorController : Controller
     {
-        // GET: Proovedor
+        // GET: Proveedor
         public ActionResult Index()
         {
-            return View();
+            using (var db = new inventario2021Entities())
+            {
+                return View(db.proveedor.ToList());
+            }
         }
         public ActionResult Create()
         {

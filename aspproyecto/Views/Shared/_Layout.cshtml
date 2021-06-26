@@ -27,20 +27,15 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Crud Usuario <span class="glyphicon glyphicon-barcode"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Registrar</a></li>
-                            <li><a href="#">Consultar</a></li>
-                            <li><a href="#">Eliminar</a></li>
-                        </ul>
-                    </li>
+
 
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("CRUD Usuario", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Proveedor", "Index", "Proveedor")</li>
+
                         <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
                     }
                 </ul>
