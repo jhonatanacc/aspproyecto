@@ -298,6 +298,7 @@
     <Content Include="Views\Proovedor\Create.cshtml" />
     <Content Include="Views\Proovedor\Edit.cshtml" />
     <Content Include="Views\Proovedor\Details.cshtml" />
+    <Content Include="Views\Proovedor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

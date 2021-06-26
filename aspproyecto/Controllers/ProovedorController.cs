@@ -58,7 +58,7 @@ namespace aspproyecto.Controllers
             catch (Exception ex)
             {
                 ModelState.AddModelError("", "error " + ex);
-                db.SaveChanges();
+                
                 return View();
             }
 
