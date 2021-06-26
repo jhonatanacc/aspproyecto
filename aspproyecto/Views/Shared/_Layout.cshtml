@@ -1,12 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Proyecto de inventario</title>
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/custom.css">
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -17,35 +21,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Proyecto Inventario", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Sistema Inventario", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Crud Usuario <span class="glyphicon glyphicon-barcode"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Registrar</a></li>
+                            <li><a href="#">Consultar</a></li>
+                            <li><a href="#">Eliminar</a></li>
+                        </ul>
+                    </li>
+
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        < <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Usuario", "Index", "usuarios")               </a>
-                        <br />
-                        <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Cliente", "Index", "Cliente")               </a>
-                        <br />
-                        <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Compra", "Index", "Compras")                </a>
-                        <br />
-                        <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Proveedor", "Index", "Proveedor")           </a>
-                        <br />
-                        <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Producto", "Index", "Producto")             </a>
-                        <br />
-                        <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Roles", "Index", "Roles")                   </a>
-                        <br />
-                        <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Producto Compra", "Index", "ProductoCompra")</a>
-                        <br />
-                        <a class="dropdown-item" href="#">@Html.ActionLink("CRUD Producto Imagen", "Index", "ProductoImagen")</a>
-                        <br />
-                        <a class="dropdown-item" href="#">@Html.ActionLink("Salir", "CloseSession", "Usuario")               </a>
+                        <li>@Html.ActionLink("CRUD Usuario", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
                     }
-
                 </ul>
             </div>
         </div>
@@ -54,7 +51,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Crud de usuario</p>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
         </footer>
     </div>
 
