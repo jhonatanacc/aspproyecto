@@ -295,10 +295,12 @@
     <Content Include="Views\Producto\Edit.cshtml" />
     <Content Include="Views\Producto\Reporte.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
+    <Content Include="Views\Proovedor\Create.cshtml" />
+    <Content Include="Views\Proovedor\Edit.cshtml" />
+    <Content Include="Views\Proovedor\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Proovedor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
