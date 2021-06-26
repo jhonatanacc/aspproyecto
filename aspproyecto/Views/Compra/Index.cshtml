@@ -12,35 +12,40 @@
 <table class="table">
     <tr>
         <th>
-            Nombre
+            Fecha
         </th>
         <th>
-            Documento
+            Total compra
+        </th>
+        <<th>
+            Cliente
         </th>
         <th>
-            Email
+            Usuario
         </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.documento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.total)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.id_cliente)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.id_usuario)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+        @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+    </td>
+</tr>
     }
 
 </table>
