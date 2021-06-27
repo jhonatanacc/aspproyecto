@@ -50,6 +50,7 @@ namespace aspproyecto.Controllers
         }
         public ActionResult Edit(int id)
         {
+
             try
             {
                 using (var db = new inventario2021Entities())
@@ -71,6 +72,8 @@ namespace aspproyecto.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(cliente clienteEdit)
         {
+            if (!ModelState.IsValid)
+                return View();
             try
             {
                 using (var db = new inventario2021Entities())

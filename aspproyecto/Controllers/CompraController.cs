@@ -78,7 +78,9 @@ namespace aspproyecto.Controllers {
 
     public ActionResult Edit(int id)
     {
-        try
+            if (!ModelState.IsValid)
+                return View();
+            try
         {
             using (var db = new inventario2021Entities())
             {

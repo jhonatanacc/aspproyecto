@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using aspproyecto.Models;
-
+using Rotativa;
 
 namespace aspproyecto.Controllers
 {
@@ -15,10 +15,10 @@ namespace aspproyecto.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-
                 return View(db.producto.ToList());
             }
         }
+
         public static string NombreProveedor(int idProveedor)
         {
             using (var db = new inventario2021Entities())
@@ -26,6 +26,7 @@ namespace aspproyecto.Controllers
                 return db.proveedor.Find(idProveedor).nombre;
             }
         }
+
         public ActionResult ListarProveedores()
         {
             using (var db = new inventario2021Entities())
@@ -33,10 +34,12 @@ namespace aspproyecto.Controllers
                 return PartialView(db.proveedor.ToList());
             }
         }
+
         public ActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(producto newProducto)
@@ -59,6 +62,7 @@ namespace aspproyecto.Controllers
                 return View();
             }
         }
+
         public ActionResult Details(int id)
         {
             using (var db = new inventario2021Entities())
@@ -67,6 +71,7 @@ namespace aspproyecto.Controllers
                 return View(productoDetalle);
             }
         }
+
         public ActionResult Delete(int id)
         {
             using (var db = new inventario2021Entities())
@@ -94,10 +99,13 @@ namespace aspproyecto.Controllers
                 return View();
             }
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(producto productoEdit)
         {
+            if (!ModelState.IsValid)
+                return View();
             try
             {
                 using (var db = new inventario2021Entities())
@@ -120,7 +128,33 @@ namespace aspproyecto.Controllers
             }
         }
 
-       
+        public ActionResult Reporte()
+        {
+            try
+            {
+                var db = new inventario2021Entities();
+                var query = from tabProveedor in db.proveedor
+                            join tabProducto in db.producto on tabProveedor.id equals tabProducto.id_proveedor
+                            select new Reporte
+                            {
+                                nombreProveedor = tabProveedor.nombre,
+                                telefonoProveedor = tabProveedor.telefono,
+                                direccionProveedor = tabProveedor.direccion,
+                                nombreProducto = tabProducto.nombre,
+                                precioProducto = tabProducto.percio_unitario
+                            };
+                return View(query);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
 
+        public ActionResult ImprimirReporte()
+        {
+            return new ActionAsPdf("Index") { FileName = "reporte.pdf" };
+        }
     }
 }
