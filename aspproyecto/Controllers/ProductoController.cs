@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using aspproyecto.Models;
-using Rotativa;
+
 
 namespace aspproyecto.Controllers
 {
@@ -141,7 +141,7 @@ namespace aspproyecto.Controllers
                                 telefonoProveedor = tabProveedor.telefono,
                                 direccionProveedor = tabProveedor.direccion,
                                 nombreProducto = tabProducto.nombre,
-                                precioProducto = tabProducto.percio_unitario
+                                
                             };
                 return View(query);
             }
@@ -152,9 +152,5 @@ namespace aspproyecto.Controllers
             }
         }
 
-        public ActionResult ImprimirReporte()
-        {
-            return new ActionAsPdf("Index") { FileName = "reporte.pdf" };
-        }
     }
 }

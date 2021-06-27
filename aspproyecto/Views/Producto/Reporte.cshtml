@@ -13,7 +13,7 @@
         <th>Telefono Proveedor</th>
         <th>Direccion Proveedor</th>
         <th>Producto</th>
-        <th>Producto Precio</th>
+       
     </tr>
     @foreach (var item in Model)
     {
@@ -22,7 +22,7 @@
             <td>@Html.DisplayFor(modelItem => item.telefonoProveedor)</td>
             <td>@Html.DisplayFor(modelItem => item.direccionProveedor)</td>
             <td>@Html.DisplayFor(modelItem => item.nombreProducto)</td>
-            <td>@Html.DisplayFor(modelItem => item.precioProducto)</td>
+            
         </tr>
     }
 </table>
