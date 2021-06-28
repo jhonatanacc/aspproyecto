@@ -16,30 +16,36 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 @Html.ActionLink("Sistema Inventario", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+            <input type="dropdown" id="menu" />
+            <label for="menu" class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="nav">
+                <ul>
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
 
-
-
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+
                         <li>@Html.ActionLink("Proveedor", "Index", "Proveedor")</li>
+
+                        <li>@Html.ActionLink("Producto", "Index", "Producto")</li>
+
+
+                        <li>@Html.ActionLink("Comprar", "Index", "Compra")</li>
 
                         <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
                     }
                 </ul>
-            </div>
+            </nav>
+        </div>
         </div>
     </div>
     <div class="container body-content">

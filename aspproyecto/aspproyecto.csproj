@@ -179,7 +179,9 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\productoCompraController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
+    <Compile Include="Controllers\productoImagenController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -310,9 +312,14 @@
     <Content Include="Views\Compra\Create.cshtml" />
     <Content Include="Views\Compra\Edit.cshtml" />
     <Content Include="Views\Compra\Details.cshtml" />
+    <Content Include="Views\productoCompra\Index.cshtml" />
+    <Content Include="Views\productoCompra\Create.cshtml" />
+    <Content Include="Views\productoCompra\Details.cshtml" />
+    <Content Include="Views\productoCompra\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\productoImagen\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
