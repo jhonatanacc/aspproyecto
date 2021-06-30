@@ -9,7 +9,7 @@ using System.Text;
 using System.Web.Security;
 
 namespace aspproyecto.Controllers
-    
+
 {
     public class UsuarioController : Controller
     {
@@ -76,17 +76,17 @@ namespace aspproyecto.Controllers
 
             try
             {
-                using(var  db = new inventario2021Entities())
+                using (var db = new inventario2021Entities())
                 {
                     usuario FindUser = db.usuario.Where(a => a.id == id).FirstOrDefault();
                     return View(FindUser);
                 }
             }
-            catch  (Exception ex)
+            catch (Exception ex)
             {
                 ModelState.AddModelError("", "error" + ex);
                 return View();
-        
+
             }
         }
         [HttpPost]
@@ -110,7 +110,7 @@ namespace aspproyecto.Controllers
                     return RedirectToAction("index");
                 }
 
-            }catch(Exception ex)
+            } catch (Exception ex)
             {
                 ModelState.AddModelError("", "error" + ex);
                 return View();
@@ -176,5 +176,18 @@ namespace aspproyecto.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult paginadorIndex(int pagina = 1)
+        {
+            var cantidadRegistros = 5;
+            using (var db = new inventario2021Entities())
+            {
+                var usuarios = db.usuario.OrderBy(X => X.id).Skip((pagina - 1) * cantidadRegistros)
+            .Take(cantidadRegistros).Tolist();
+                var totalRegistros = db.usuario.Count();
+
+            }
+
+        }
+
     }
 }

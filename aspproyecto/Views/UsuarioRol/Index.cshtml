@@ -1,0 +1,36 @@
+﻿@model IEnumerable<aspproyecto.Models.usuariorol>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            UsuarioRol
+        </th>
+        <th>
+            Rol
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @aspproyecto.Controllers.UsuarioRolController.NombreUsuarioRol(item.idUsuario)
+
+
+            </td>
+            <td>
+                @aspproyecto.Controllers.UsuarioRolController.NombreRol(item.idRol)
+            </td>
+
+        </tr>
+    }
+
+</table>

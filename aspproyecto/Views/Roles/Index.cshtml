@@ -1,0 +1,41 @@
+﻿@model IEnumerable<aspproyecto.Models.roles>
+
+@{ ViewBag.Title = "Index"; }
+
+<h2>Todos los Roles</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Rol", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+
+            Descripción
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+            </td>
+        </tr>
+}
+
+</table>
+@section scripts{
+    <script>
+        $(".linkDelete").click(function (event) {
+            if (!confirm('¿ Esta seguro de eliminar ?')) {
+                event.preventDefault();
+            }
+        })
+    </script>
+}
