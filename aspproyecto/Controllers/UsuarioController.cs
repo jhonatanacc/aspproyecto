@@ -176,18 +176,7 @@ namespace aspproyecto.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult paginadorIndex(int pagina = 1)
-        {
-            var cantidadRegistros = 5;
-            using (var db = new inventario2021Entities())
-            {
-                var usuarios = db.usuario.OrderBy(X => X.id).Skip((pagina - 1) * cantidadRegistros)
-            .Take(cantidadRegistros).Tolist();
-                var totalRegistros = db.usuario.Count();
-
-            }
-
-        }
+        
 
     }
 }

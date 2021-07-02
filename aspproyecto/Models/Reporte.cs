@@ -12,7 +12,6 @@ namespace aspproyecto.Models
         public String telefonoProveedor { get; set; }
         public String nombreProducto { get; set; }
 
-       
 
     }
 }

@@ -140,7 +140,7 @@ namespace aspproyecto.Controllers
                                 nombreProveedor = tabProveedor.nombre,
                                 telefonoProveedor = tabProveedor.telefono,
                                 direccionProveedor = tabProveedor.direccion,
-                                nombreProducto = tabProducto.nombre,
+                               
                                 
                             };
                 return View(query);
@@ -149,8 +149,9 @@ namespace aspproyecto.Controllers
             {
                 ModelState.AddModelError("", "error " + ex);
                 return View();
-            }
-        }
 
+            }
+           
+        }
     }
 }

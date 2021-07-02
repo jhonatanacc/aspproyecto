@@ -190,6 +190,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseModelo.cs" />
+    <Compile Include="Models\ReporteCompra.cs" />
     <Compile Include="Models\UsuarioIndex.cs" />
     <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\cliente.cs">
@@ -331,6 +332,7 @@
     <Content Include="Views\UsuarioRol\Index.cshtml" />
     <Content Include="Views\UsuarioRol\ListarRol.cshtml" />
     <Content Include="Views\UsuarioRol\ListarusuarioRol.cshtml" />
+    <Content Include="Views\Compra\Reporte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
