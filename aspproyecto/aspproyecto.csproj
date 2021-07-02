@@ -333,6 +333,7 @@
     <Content Include="Views\UsuarioRol\ListarRol.cshtml" />
     <Content Include="Views\UsuarioRol\ListarusuarioRol.cshtml" />
     <Content Include="Views\Compra\Reporte.cshtml" />
+    <Content Include="Views\Cliente\uploadCSV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
