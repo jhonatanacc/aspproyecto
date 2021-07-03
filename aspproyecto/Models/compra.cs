@@ -27,9 +27,11 @@ namespace aspproyecto.Models
         public int total { get; set; }
         [Required(ErrorMessage = "Este campo no puede ir vacio")]
         public int id_usuario { get; set; }
+        [Required(ErrorMessage = "Este campo no puede ir vacio")]
         public int id_cliente { get; set; }
     
         public virtual cliente cliente { get; set; }
+        [Required(ErrorMessage = "Este campo no puede ir vacio")]
         public virtual usuario usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<producto_compra> producto_compra { get; set; }

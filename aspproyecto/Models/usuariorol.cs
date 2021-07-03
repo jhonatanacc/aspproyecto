@@ -11,14 +11,17 @@ namespace aspproyecto.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class usuariorol
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "Este campo no puede ir vacio")]
         public int idUsuario { get; set; }
+        [Required(ErrorMessage = "Este campo no puede ir vacio")]
         public int idRol { get; set; }
-    
+        [Required(ErrorMessage = "Este campo no puede ir vacio")]
         public virtual roles roles { get; set; }
+        [Required(ErrorMessage = "Este campo no puede ir vacio")]
         public virtual usuario usuario { get; set; }
     }
 }

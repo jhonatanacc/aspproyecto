@@ -1,0 +1,19 @@
+﻿body {
+    font-family: 'Dosis', sans-serif;
+}
+
+/*aplicando estilos por medio de las clases*/
+.tituloHome {
+}
+
+.navbar-inverse {
+    background-color: whitesmoke;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: #777;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #000000;
+    }
