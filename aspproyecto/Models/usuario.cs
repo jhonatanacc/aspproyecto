@@ -30,6 +30,7 @@ namespace aspproyecto.Models
         public string nombre { get; set; }
         [Required(ErrorMessage = "El apellido no puede ir vacio")]
         public string apellido { get; set; }
+        [Required(ErrorMessage = "Este campo no puede ir vacio")]
         public System.DateTime fecha_nacimiento { get; set; }
 
         [EmailAddress]
