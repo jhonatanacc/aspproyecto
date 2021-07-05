@@ -20,21 +20,8 @@ namespace aspproyecto.Controllers
             }
         }
 
-        public static string NombreProveedor(int idProveedor)
-        {
-            using (var db = new inventario2021Entities())
-            {
-                return db.proveedor.Find(idProveedor).nombre;
-            }
-        }
-
-        public ActionResult ListarProveedores()
-        {
-            using (var db = new inventario2021Entities())
-            {
-                return PartialView(db.proveedor.ToList());
-            }
-        }
+       
+        
 
         public ActionResult Create()
         {

@@ -18,20 +18,6 @@ namespace aspproyecto.Controllers {
                 return View(db.compra.ToList());
             }
         }
-        public static string NombreUsuario(int idUsuario)
-        {
-            using (var db = new inventario2021Entities())
-            {
-                return db.usuario.Find(idUsuario).nombre;
-            }
-        }
-        public ActionResult ListarCompra()
-        {
-            using (var db = new inventario2021Entities())
-            {
-                return PartialView(db.compra.ToList());
-            }
-        }
         public ActionResult Create()
         {
             return View();
@@ -120,7 +106,7 @@ namespace aspproyecto.Controllers {
                 return View();
             }
         }
-            public ActionResult ReporteCompra()
+            public ActionResult Reporte()
             {
                 try
                 {
